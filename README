@@ -1,0 +1,14 @@
+#== 基于springmvc + springdm 集成开发OSGi
+
+1.构建打包工程
+$ cd /your path/springmvc-springdm-integrated
+$ mvn clean compile bundle:manifest package
+
+2)安装生成的bundle到OSGi容器(equinox)
+进入equinox控制台
+install file:/your path/springmvc-springdm-integrated/service-api/target/service-api-0.0.1-SNAPSHOT.jar
+install file:/your path/springmvc-springdm-integrated/service-add-impl/target/service-add-impl-0.0.1-SNAPSHOT.jar
+install file:/your path/springmvc-springdm-integrated/web-springmvc/target/web-springmvc-0.0.1-SNAPSHOT.war
+
+3)
+访问:http://localhost:8080/web-springmvc/

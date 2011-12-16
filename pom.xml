@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.xiebiao.osgi</groupId>
+	<artifactId>springmvc-springdm-integrated</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>springmvc-springdm-integrated</name>
+	<properties>
+		<springdm.version>2.0.0.M1</springdm.version>
+		<spring.version>3.0.0.RC1</spring.version>
+		<compiler.plugin.version>2.3.2</compiler.plugin.version>
+		<maven.war.plugin.version>2.1.1</maven.war.plugin.version>
+		<aspectj.version>1.6.11</aspectj.version>
+		<equinox.version>3.5.1.R35x_v20090827</equinox.version>
+		<maven.bundle.plugin.version>2.3.6</maven.bundle.plugin.version>
+		<org.slf4j-version>1.6.1</org.slf4j-version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven.bundle.plugin.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler.plugin.version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+
+	</dependencies>
+	<modules>
+		<module>service-api</module>
+		<module>service-add-impl</module>
+		<module>service-subtract-impl</module>
+		<module>web-springmvc</module>
+	</modules>
+</project>
