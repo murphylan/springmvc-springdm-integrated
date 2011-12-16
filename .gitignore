@@ -1,4 +1,5 @@
 /target/
+/service-api/target/
 /service-add-impl/target/
 /service-subtract-impl/target/
 /web-springmvc/target/
