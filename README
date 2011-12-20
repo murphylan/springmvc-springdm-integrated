@@ -8,6 +8,7 @@ $ mvn clean compile bundle:manifest package
 进入equinox控制台
 install file:/your path/springmvc-springdm-integrated/service-api/target/service-api-0.0.1-SNAPSHOT.jar
 install file:/your path/springmvc-springdm-integrated/service-add-impl/target/service-add-impl-0.0.1-SNAPSHOT.jar
+install file:/your path/springmvc-springdm-integrated/dao-mybatis-impl/target/dao-mybatis-impl-0.0.1-SNAPSHOT.jar
 install file:/your path/springmvc-springdm-integrated/web-springmvc/target/web-springmvc-0.0.1-SNAPSHOT.war
 
 3)

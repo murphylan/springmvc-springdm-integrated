@@ -8,4 +8,6 @@
 	<!-- OSGi services -->
 	<osgi:reference id="computeService"
 		interface="com.xiu.osgi.business.service.ComputeService" />
+	<osgi:reference id="userDaoImpl"
+		interface="com.xiebiao.osgi.business.dao.UserDao" />
 </beans>
