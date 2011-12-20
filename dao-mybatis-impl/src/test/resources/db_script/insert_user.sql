@@ -1,0 +1,1 @@
+INSERT INTO user (userName,age) VALUES ('xiaog',30);

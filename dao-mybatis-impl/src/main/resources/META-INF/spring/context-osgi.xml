@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+	<!-- bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:/jdbc.properties" />
+	</bean-->
+	<!-- 从OSGi种获取 DataSource manager -->
+	<osgi:reference id="dataSource" interface="javax.sql.DataSource"/>
+	<!--  bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		lazy-init="false">
+		<property name="driverClass" value="com.xiebiao.osgi.business.dao.MyDriver" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean-->
+	<!-- 创建SqlSessionFactory，同时指定数据源 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="userDaoImpl" class="com.xiebiao.osgi.business.dao.impl.UserDaoImpl">
+		<!--注入SqlSessionTemplate实例 -->
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+		<!--也可直接注入SqlSessionFactory实例，二者都指定时，SqlSessionFactory失效 -->
+		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory" /> -->
+	</bean>
+	<!-- 导出服务到OSGi -->
+	<osgi:service ref="userDaoImpl">
+		<osgi:interfaces> <value>com.xiebiao.osgi.business.dao.UserDao</value>
+		</osgi:interfaces>
+	</osgi:service>
+</beans>
