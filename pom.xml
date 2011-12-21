@@ -11,6 +11,7 @@
 		<spring.version>3.0.0.RC1</spring.version>
 		<maven.jar.plugin.version>2.3.2</maven.jar.plugin.version>
 		<mysql.jdbc.driver>5.1.18</mysql.jdbc.driver>
+		<c3p0.version>0.9.1.2</c3p0.version>
 		<compiler.plugin.version>2.3.2</compiler.plugin.version>
 		<maven.war.plugin.version>2.1.1</maven.war.plugin.version>
 		<aspectj.version>1.6.11</aspectj.version>
@@ -25,6 +26,18 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<version>${maven.bundle.plugin.version}</version>
 				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifestFile>
+							target/bnd/MANIFEST.MF
+						</manifestFile>
+					</archive>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
