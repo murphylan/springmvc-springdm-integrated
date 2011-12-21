@@ -9,10 +9,6 @@
 	</parent>
 	<artifactId>datasource</artifactId>
 	<packaging>jar</packaging>
-	<properties>
-		<c3p0.version>0.9.1.2</c3p0.version>
-		<maven.jar.plugin.version>2.3.2</maven.jar.plugin.version>
-	</properties>
 	<build>
 		<plugins>
 			<plugin>
@@ -23,7 +19,6 @@
 				<configuration>
 					<manifestLocation>target/bnd</manifestLocation>
 					<instructions>
-					<Require-Bundle>com.mysql.jdbc</Require-Bundle>
 						<Import-Package>
 							javax.sql,
 							com.mchange.v2.c3p0;version="${c3p0.version}",
@@ -34,18 +29,28 @@
 					</instructions>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven.jar.plugin.version}</version>
-				<configuration>
-					<archive>
-						<manifestFile>
-							target/bnd/MANIFEST.MF
-						</manifestFile>
-					</archive>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
+	<dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.jdbc.driver}</version>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	</dependencies>
 </project>
