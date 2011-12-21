@@ -11,24 +11,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>dao-mybatis-impl</name>
-	<properties>
-		<c3p0.version>0.9.1.2</c3p0.version>
-		<mysql.jdbc.driver>5.1.18</mysql.jdbc.driver>
-		<mybatis.version>3.0.6</mybatis.version>
-		<mybatis.spring.version>1.0.2</mybatis.spring.version>
-	</properties>
-	<repositories>
-		<repository>
-			<id>com.springsource.repository.bundles.release</id>
-			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
-			<url>http://repository.springsource.com/maven/bundles/release</url>
-		</repository>
-		<repository>
-			<id>com.springsource.repository.bundles.external</id>
-			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
-			<url>http://repository.springsource.com/maven/bundles/external</url>
-		</repository>
-	</repositories>
+	<!-- repositories> <repository> <id>com.springsource.repository.bundles.release</id> 
+		<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name> 
+		<url>http://repository.springsource.com/maven/bundles/release</url> </repository> 
+		<repository> <id>com.springsource.repository.bundles.external</id> <name>SpringSource 
+		Enterprise Bundle Repository - External Bundle Releases</name> <url>http://repository.springsource.com/maven/bundles/external</url> 
+		</repository> </repositories -->
 	<build>
 		<plugins>
 			<plugin>
@@ -43,17 +31,11 @@
 							*,
 							javax.sql
 						</Import-Package>
+						<Export-Package>
+							com.xiebiao.osgi.business.dao;version="${project.version}",
+							com.xiebiao.osgi.business.domain;version="${project.version}"
+						</Export-Package>
 					</instructions>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compiler.plugin.version}</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -74,26 +56,18 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>1.0.2</version>
+			<version>${mybatis.spring.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.18</version>
-			<scope>provided</scope>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
 			<scope>test</scope>
-		</dependency>
-		<!-- dependency> <groupId>com.mchange.c3p0</groupId> <artifactId>com.springsource.com.mchange.v2.c3p0</artifactId> 
-			<version>${c3p0.version}</version> <scope>test</scope> </dependency -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.0.4</version>
 		</dependency>
 	</dependencies>
 </project>

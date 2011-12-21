@@ -11,6 +11,8 @@
 		<spring.version>3.0.0.RC1</spring.version>
 		<maven.jar.plugin.version>2.3.2</maven.jar.plugin.version>
 		<mysql.jdbc.driver>5.1.18</mysql.jdbc.driver>
+		<mybatis.version>3.0.6</mybatis.version>
+		<mybatis.spring.version>1.0.2</mybatis.spring.version>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<compiler.plugin.version>2.3.2</compiler.plugin.version>
 		<maven.war.plugin.version>2.1.1</maven.war.plugin.version>
