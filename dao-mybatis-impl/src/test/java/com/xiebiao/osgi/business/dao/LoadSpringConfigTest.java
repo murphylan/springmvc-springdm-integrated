@@ -23,7 +23,7 @@ public class LoadSpringConfigTest extends TestCase {
 			//	"META-INF/spring/context-osgi.xml");
 	}
 
-	public void a_test_right() {
+	public void test_right() {
 	}
 
 	public void a_test_retrieve_bean_from_xml() {

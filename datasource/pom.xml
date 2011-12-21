@@ -23,6 +23,8 @@
 							javax.sql,
 							com.mchange.v2.c3p0;version="${c3p0.version}",
 							com.mysql.jdbc;version="${mysql.jdbc.driver}",
+							com.mysql.jdbc.jdbc2.optional;version="${mysql.jdbc.driver}",
+							org.springframework.jdbc.datasource;version="${spring.version}",
 							org.springframework.beans.factory.config;version="${spring.version}",
 							org.springframework.context;version="${spring.version}"
 						</Import-Package>

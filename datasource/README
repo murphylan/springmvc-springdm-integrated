@@ -1,1 +1,5 @@
 #== OSGi bundle required
+由于连接池工具dbcp或c3p0的bundle中没有指定具体的数据库驱动。
+所以在runningtime加载驱动的时候classloader找不到驱动.
+解决办法详情见:
+http://forum.springsource.org/showthread.php?59588-CNFE-when-loading-mysql-jdbc-driver
