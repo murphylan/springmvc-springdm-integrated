@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     2011-12-26 下午5:43:25                                                        
+
+     project    
+     description
+                   
+     xiaog                                                                
+     ====================================================================== -->
+<project name="project" default="default">
+	<description>
+            ANT构建项目
+    </description>
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="project.dependency.dir" value="${build.dir}/dependency" />
+	<property name="project.dist.dir" value="${build.dir}/dist" />
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="default" depends="package" description="description">
+		<exec executable="${mvn_cmd}">
+			<arg value="clean" />
+			<arg value="compile" />
+			<arg value="bundle:manifest" />
+			<arg value="package" />
+			<arg value="dependency:copy-dependencies" />
+			<arg value="-U" />
+			<arg value="-X" />
+		</exec>
+
+	</target>
+	<!-- ================================= 
+	          target: default              
+	         ================================= -->
+	<target name="package" depends="set_unix_mvn,set_windows_mvn" description="description">
+		<echo>${mvn_cmd}</echo>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="init">
+		<!-- 判断系统 -->
+		<condition property="isMac">
+			<os family="mac" />
+		</condition>
+		<condition property="isWindows">
+			<os family="windows" />
+		</condition>
+		<condition property="isUnix">
+			<os family="unix" />
+		</condition>
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${project.dependency.dir}" />
+		<mkdir dir="${project.dist.dir}" />
+	</target>
+	<target name="set_unix_mvn" if="isUnix" depends="init">
+		<property name="mvn_cmd" value="mvn" />
+	</target>
+	<target name="set_windows_mvn" if="isWindows" depends="init">
+		<property name="mvn_cmd" value="mvn.bat" />
+	</target>
+</project>
