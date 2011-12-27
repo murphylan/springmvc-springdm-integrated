@@ -20,7 +20,7 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${maven.bundle.plugin.version}</version>
+				<version>${maven_bundle_plugin_version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<manifestLocation>target/bnd</manifestLocation>
@@ -31,29 +31,6 @@
 						</Import-Package>
 						<Bundle-Activator>com.xiebiao.osgi.business.service.impl.ComputeServiceSubtractImplActivator</Bundle-Activator>
 					</instructions>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compiler.plugin.version}</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<goal>bundle</goal>
-					<archive>
-						<manifestFile>
-							target/bnd/MANIFEST.MF
-						</manifestFile>
-					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -78,7 +55,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 	</dependencies>
 </project>

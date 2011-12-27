@@ -7,32 +7,35 @@
 	<packaging>pom</packaging>
 	<name>springmvc-springdm-integrated</name>
 	<properties>
-		<springdm.version>2.0.0.M1</springdm.version>
-		<spring.version>3.1.0.RELEASE</spring.version>
-		<maven.jar.plugin.version>2.3.2</maven.jar.plugin.version>
-		<mysql.jdbc.driver>5.1.18</mysql.jdbc.driver>
-		<mybatis.version>3.0.6</mybatis.version>
-		<mybatis.spring.version>1.0.2</mybatis.spring.version>
-		<c3p0.version>0.9.1.2</c3p0.version>
-		<compiler.plugin.version>2.3.2</compiler.plugin.version>
-		<maven.war.plugin.version>2.1.1</maven.war.plugin.version>
-		<aspectj.version>1.6.11</aspectj.version>
-		<equinox.version>3.5.1.R35x_v20090827</equinox.version>
-		<maven.bundle.plugin.version>2.3.6</maven.bundle.plugin.version>
-		<org.slf4j-version>1.6.1</org.slf4j-version>
-		<project.basedir>.</project.basedir>
+		<springdm_version>2.0.0.M1</springdm_version>
+		<spring_version>3.1.0.RELEASE</spring_version>
+		<maven_jar_plugin_version>2.3.2</maven_jar_plugin_version>
+		<mysql_jdbc_driver>5.1.18</mysql_jdbc_driver>
+		<mybatis_version>3.0.6</mybatis_version>
+		<mybatis_spring_version>1.0.2</mybatis_spring_version>
+		<c3p0_version>0.9.1.2</c3p0_version>
+		<bonecp_version>0.7.1.RELEASE</bonecp_version>
+		<compiler_plugin_version>2.3.2</compiler_plugin_version>
+		<maven_war_plugin_version>2.1.1</maven_war_plugin_version>
+		<aspectj_version>1.6.11</aspectj_version>
+		<equinox_version>3.5.1.R35x_v20090827</equinox_version>
+		<maven_bundle_plugin_version>2.3.6</maven_bundle_plugin_version>
+		<org_slf4j_version>1.6.1</org_slf4j_version>
+		<org_slf4j_api_version>1.6.1</org_slf4j_api_version>
+		<project_basedir>${user.dir}</project_basedir>
 	</properties>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${maven.bundle.plugin.version}</version>
+				<version>${maven_bundle_plugin_version}</version>
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven_war_plugin_version}</version>
 				<configuration>
 					<archive>
 						<manifestFile>
@@ -45,7 +48,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven.jar.plugin.version}</version>
+				<version>${maven_jar_plugin_version}</version>
 				<configuration>
 					<archive>
 						<manifestFile>
@@ -58,7 +61,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compiler.plugin.version}</version>
+				<version>${compiler_plugin_version}</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
@@ -70,139 +73,156 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<configuration>
 					<!-- 方便统一拷贝部署 -->
-					<outputDirectory>${project.basedir}/build/dependency</outputDirectory>
+					<outputDirectory>${project_basedir}/build/dependency</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>
-		<!-- Log -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.5.6</version>
-		</dependency>
-		<!-- Spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<!--dependency> <groupId>org.springframework</groupId> <artifactId>spring-context-support</artifactId> 
-			<version>${spring.version}</version> </dependency -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<!-- Spring mvc -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.validation</groupId>
-					<artifactId>com.springsource.javax.validation</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- Spring OSGi -->
-		<dependency>
-			<groupId>org.springframework.osgi</groupId>
-			<artifactId>spring-osgi-annotation</artifactId>
-			<version>${springdm.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.osgi</groupId>
-			<artifactId>spring-osgi-web</artifactId>
-			<version>${springdm.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.aop</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.beans</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.context</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.osgi</groupId>
-			<artifactId>spring-osgi-web-extender</artifactId>
-			<version>${springdm.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.aop</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.beans</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.context</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.osgi</groupId>
-			<artifactId>spring-osgi-extender</artifactId>
-			<version>${springdm.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.aop</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.beans</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>org.springframework.context</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql_jdbc_driver}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jolbox</groupId>
+				<artifactId>bonecp</artifactId>
+				<version>${bonecp_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>c3p0</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>${c3p0_version}</version>
+			</dependency>
+			<!-- Log -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${org_slf4j_api_version}</version>
+			</dependency>
+			<!-- Spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring_version}</version>
+			</dependency>
+			<!--dependency> <groupId>org.springframework</groupId> <artifactId>spring-context-support</artifactId> 
+				<version>${springdm_version}</version> </dependency -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring_version}</version>
+			</dependency>
+			<!-- Spring mvc -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring_version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.validation</groupId>
+						<artifactId>com.springsource.javax.validation</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- Spring OSGi -->
+			<dependency>
+				<groupId>org.springframework.osgi</groupId>
+				<artifactId>spring-osgi-annotation</artifactId>
+				<version>${springdm_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.osgi</groupId>
+				<artifactId>spring-osgi-web</artifactId>
+				<version>${springdm_version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.aop</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.beans</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.context</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.osgi</groupId>
+				<artifactId>spring-osgi-web-extender</artifactId>
+				<version>${springdm_version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.aop</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.beans</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.context</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.osgi</groupId>
+				<artifactId>spring-osgi-extender</artifactId>
+				<version>${springdm_version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.aop</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.beans</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>org.springframework.context</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<modules>
 		<module>service-api</module>
 		<module>dao-mybatis-impl</module>

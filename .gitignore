@@ -1,9 +1,15 @@
 /target/
 /build/
 /datasource/target/
+/datasource/build/
 /dao-mybatis-impl/target/
+/dao-mybatis-impl/build/
 /service-api/target/
+/service-api/build/
 /dao-api/target/
 /service-add-impl/target/
+/service-add-impl/build/
 /service-subtract-impl/target/
+/service-subtract-impl/build/
 /web-springmvc/target/
+/web-springmvc/build/

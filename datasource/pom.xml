@@ -9,27 +9,25 @@
 	</parent>
 	<artifactId>datasource</artifactId>
 	<packaging>jar</packaging>
-	<properties>
-		<bonecp.version>0.7.1.RELEASE</bonecp.version>
-	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${maven.bundle.plugin.version}</version>
+				<version>${maven_bundle_plugin_version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<manifestLocation>target/bnd</manifestLocation>
 					<instructions>
 						<Import-Package>
 							javax.sql,
-							com.jolbox.bonecp;version="${0.7.1.RELEASE}",
-							com.mysql.jdbc;version="${mysql.jdbc.driver}",
-							com.mysql.jdbc.jdbc2.optional;version="${mysql.jdbc.driver}",
-							org.springframework.jdbc.datasource;version="${spring.version}",
-							org.springframework.beans.factory.config;version="${spring.version}",
-							org.springframework.context;version="${spring.version}"
+							com.jolbox.bonecp;version="${bonecp_version}",
+							com.mysql.jdbc;version="${mysql_jdbc_driver}",
+							com.mysql.jdbc.jdbc2.optional;version="${mysql_jdbc_driver}",
+							org.springframework.jdbc.datasource;version="${spring_version}",
+							org.springframework.beans.factory.config;version="${spring_version}",
+							org.springframework.context;version="${spring_version}"
 						</Import-Package>
 					</instructions>
 				</configuration>
@@ -38,34 +36,21 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.jdbc.driver}</version>
-		</dependency>
-		<dependency>
-			<groupId>c3p0</groupId>
-			<artifactId>c3p0</artifactId>
-			<version>${c3p0.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jolbox</groupId>
 			<artifactId>bonecp</artifactId>
-			<version>${bonecp.version}</version>
 		</dependency>
-		<dependency>
+		<!--  dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.4.0</version>
-		</dependency>
+		</dependency-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 	</dependencies>
 </project>
