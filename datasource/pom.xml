@@ -9,6 +9,9 @@
 	</parent>
 	<artifactId>datasource</artifactId>
 	<packaging>jar</packaging>
+	<properties>
+		<bonecp.version>0.7.1.RELEASE</bonecp.version>
+	</properties>
 	<build>
 		<plugins>
 			<plugin>
@@ -21,7 +24,7 @@
 					<instructions>
 						<Import-Package>
 							javax.sql,
-							com.mchange.v2.c3p0;version="${c3p0.version}",
+							com.jolbox.bonecp;version="${0.7.1.RELEASE}",
 							com.mysql.jdbc;version="${mysql.jdbc.driver}",
 							com.mysql.jdbc.jdbc2.optional;version="${mysql.jdbc.driver}",
 							org.springframework.jdbc.datasource;version="${spring.version}",
@@ -48,6 +51,16 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jolbox</groupId>
+			<artifactId>bonecp</artifactId>
+			<version>${bonecp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
