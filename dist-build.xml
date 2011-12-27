@@ -50,6 +50,7 @@
 		<condition property="isUnix">
 			<os family="unix" />
 		</condition>
+		<delete dir="${build.dir}"/>
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${project.dependency.dir}" />
 		<mkdir dir="${project.dist.dir}" />
