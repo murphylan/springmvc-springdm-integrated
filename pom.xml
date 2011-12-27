@@ -81,6 +81,26 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis_spring_version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-jdbc</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-tx</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis_version}</version>
+			</dependency>
+			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql_jdbc_driver}</version>
@@ -159,19 +179,23 @@
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.aop</artifactId>
+						<artifactId>spring-aop</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.beans</artifactId>
+						<artifactId>spring-beans</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.core</artifactId>
+						<artifactId>spring-jdbc</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.context</artifactId>
+						<artifactId>spring-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
 					</exclusion>
 				</exclusions>
 			</dependency>
@@ -182,19 +206,23 @@
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.aop</artifactId>
+						<artifactId>spring-aop</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.beans</artifactId>
+						<artifactId>spring-beans</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.core</artifactId>
+						<artifactId>spring-jdbc</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.context</artifactId>
+						<artifactId>spring-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
 					</exclusion>
 				</exclusions>
 			</dependency>
@@ -205,19 +233,23 @@
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.aop</artifactId>
+						<artifactId>spring-aop</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.beans</artifactId>
+						<artifactId>spring-beans</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.core</artifactId>
+						<artifactId>spring-jdbc</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework</groupId>
-						<artifactId>org.springframework.context</artifactId>
+						<artifactId>spring-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
 					</exclusion>
 				</exclusions>
 			</dependency>
