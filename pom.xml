@@ -20,6 +20,7 @@
 		<equinox.version>3.5.1.R35x_v20090827</equinox.version>
 		<maven.bundle.plugin.version>2.3.6</maven.bundle.plugin.version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
+		<project.basedir>.</project.basedir>
 	</properties>
 	<build>
 		<plugins>
@@ -31,6 +32,18 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestFile>
+							target/bnd/MANIFEST.MF
+						</manifestFile>
+					</archive>
+					<outputDirectory>${user.dir}/build/dist</outputDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>${maven.jar.plugin.version}</version>
 				<configuration>
@@ -39,6 +52,7 @@
 							target/bnd/MANIFEST.MF
 						</manifestFile>
 					</archive>
+					<outputDirectory>${user.dir}/build/dist</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -49,6 +63,14 @@
 					<source>1.6</source>
 					<target>1.6</target>
 					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<!-- 方便统一拷贝部署 -->
+					<outputDirectory>${project.basedir}/build/dependency</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
