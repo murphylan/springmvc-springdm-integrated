@@ -1,4 +1,5 @@
 /target/
+/build/
 /datasource/target/
 /dao-mybatis-impl/target/
 /service-api/target/
