@@ -30,7 +30,6 @@
 						<Webapp-Context>${project.name}</Webapp-Context>
 						<Web-ContextPath>${project.name}</Web-ContextPath>
 						<Export-Package>!*</Export-Package>
-						<Require-Bundle>org.springframework.expression;version="${spring_version}"</Require-Bundle>
 						<Import-Package>
 							*,
 							org.xml.sax,
@@ -55,7 +54,7 @@
 							org.springframework.expression;version="${spring_version}",
 							org.springframework.osgi.extensions.annotation;version="${springdm_version}",
 							org.springframework.stereotype;version="${spring_version}",
-							org.springframework.osgi.web.context.support;version="${springdm.springdm_version}",
+							org.springframework.osgi.web.context.support;version="${springdm_version}",
 							com.xiebiao.osgi.business.service;version="${project.version}"
 						</Import-Package>
 						<Bundle-ClassPath>
@@ -70,7 +69,17 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-annotation</artifactId>
+			<version>${springdm_version}</version>
+		</dependency>
 		<!-- OSGi Servlet bundle -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -98,6 +107,11 @@
 		<dependency>
 			<groupId>com.xiebiao.osgi.business.dao</groupId>
 			<artifactId>dao-mybatis-impl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xiebiao.osgi</groupId>
+			<artifactId>service-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
