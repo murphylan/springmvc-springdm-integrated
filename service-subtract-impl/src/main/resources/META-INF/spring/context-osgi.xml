@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+	<bean id="subtractImpl" class="com.xiebiao.osgi.business.service.impl.Subtract">
+	</bean>
+	<!-- export the existing datasource bean into OSGi -->
+	<osgi:service ref="subtractImpl">
+		<osgi:interfaces>
+			<value>com.xiebiao.osgi.business.service.ComputeService</value>
+		</osgi:interfaces>
+	</osgi:service>
+</beans>
