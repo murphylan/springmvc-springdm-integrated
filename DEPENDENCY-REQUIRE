@@ -1,0 +1,30 @@
+#== servlet jsp JSTL 相关
+com.springsource.javax.el-1.0.0.jar
+com.springsource.javax.servlet-2.5.0.jar
+com.springsource.javax.servlet.jsp-2.1.0.jar
+com.springsource.javax.servlet.jsp.jstl-1.2.0.v20110728.jar
+#== mybatis相关
+mybatis-3.0.6.jar
+mybatis-spring-1.0.2.jar
+mysql-connector-java-5.1.18.jar
+com.springsource.com.mchange.v2.c3p0-0.9.1.2.jar
+#== spring 相关
+com.springsource.org.aopalliance-1.0.0.jar
+spring-aop-3.1.0.RELEASE.jar
+spring-asm-3.1.0.RELEASE.jar
+spring-beans-3.1.0.RELEASE.jar
+spring-context-3.1.0.RELEASE.jar
+spring-context-support-3.1.0.RELEASE.jar
+spring-core-3.1.0.RELEASE.jar
+spring-expression-3.1.0.RELEASE.jar
+spring-jdbc-3.1.0.RELEASE.jar
+spring-orm-3.1.0.RELEASE.jar
+spring-tx-3.1.0.RELEASE.jar
+spring-web-3.1.0.RELEASE.jar
+spring-webmvc-3.1.0.RELEASE.jar
+#== spring dm相关
+spring-osgi-annotation-1.2.1.jar
+spring-osgi-core-1.2.1.jar
+spring-osgi-extender-1.2.1.jar
+spring-osgi-io-1.2.1.jar
+spring-osgi-web-1.2.1.jar

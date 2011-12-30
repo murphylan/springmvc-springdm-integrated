@@ -4,13 +4,22 @@
 $ cd /your path/springmvc-springdm-integrated
 $ mvn clean compile bundle:manifest package
 
-2)安装生成的bundle到OSGi容器(equinox)
-进入equinox控制台
-install file:/your path/springmvc-springdm-integrated/service-api/target/service-api-0.0.1-SNAPSHOT.jar
-install file:/your path/springmvc-springdm-integrated/datasource/target/datasource-0.0.1-SNAPSHOT.jar
-install file:/your path/springmvc-springdm-integrated/service-add-impl/target/service-add-impl-0.0.1-SNAPSHOT.jar
-install file:/your path/springmvc-springdm-integrated/dao-mybatis-impl/target/dao-mybatis-impl-0.0.1-SNAPSHOT.jar
-install file:/your path/springmvc-springdm-integrated/web-springmvc/target/web-springmvc-0.0.1-SNAPSHOT.war
+为了方面，修改了maven默认打包的行为，将生成的bundle放到当前build/dist目录下.
+$ mvn denpendency:copy-dependencies 会将相关的依赖拷贝到build/dependency目录下
 
+2)安装生成的bundle到OSGi容器(equinox)
+	1.将dependency目录下的jar先安装在OSGI容器中.
+	2.再安装项目模块
+		install file:/your path/springmvc-springdm-integrated/build/dist/service-api-0.0.1-SNAPSHOT.jar
+		install file:/your path/springmvc-springdm-integrated/build/dist/datasource-0.0.1-SNAPSHOT.jar
+		install file:/your path/springmvc-springdm-integrated/build/dist/service-add-impl-0.0.1-SNAPSHOT.jar
+		install file:/your path/springmvc-springdm-integrated/build/dist/dao-mybatis-impl-0.0.1-SNAPSHOT.jar
+		install file:/your path/springmvc-springdm-integrated/build/dist/web-springmvc-0.0.1-SNAPSHOT.war
 3)
 访问:http://localhost:8080/web-springmvc/
+
+#== 在karaf中部署
+在karaf中部署就很简单了，直接将相关的依赖都拷贝到karaf的deploy目录下就可以了.
+不过在部署war包前，必须在karaf中安装pax-web.
+karaf@root> feature:install war -v
+然后再将war包拷贝到deploy目录中
