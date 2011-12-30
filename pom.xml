@@ -7,8 +7,8 @@
 	<packaging>pom</packaging>
 	<name>springmvc-springdm-integrated</name>
 	<properties>
-		<springdm_version>2.0.0.M1</springdm_version>
-		<spring_version>3.1.0.RELEASE</spring_version>
+		<springdm_version>1.2.0</springdm_version>
+		<spring_version>3.0.5.RELEASE</spring_version>
 		<maven_jar_plugin_version>2.3.2</maven_jar_plugin_version>
 		<mysql_jdbc_driver>5.1.18</mysql_jdbc_driver>
 		<mybatis_version>3.0.6</mybatis_version>

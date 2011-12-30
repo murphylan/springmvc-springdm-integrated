@@ -16,6 +16,7 @@ import com.xiebiao.osgi.springmvc.web.pojo.ComputePojo;
  * 
  */
 @Controller
+@RequestMapping("/demo")
 public class ComputeController {
 	// @Autowired
 	// BundleContext bundleContext;

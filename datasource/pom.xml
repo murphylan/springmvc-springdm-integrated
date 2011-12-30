@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>datasource</artifactId>
 	<packaging>jar</packaging>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -22,9 +22,8 @@
 					<instructions>
 						<Import-Package>
 							javax.sql,
-							com.jolbox.bonecp;version="${bonecp_version}",
+							com.mchange.v2.c3p0;version="${c3p0_version}",
 							com.mysql.jdbc;version="${mysql_jdbc_driver}",
-							com.mysql.jdbc.jdbc2.optional;version="${mysql_jdbc_driver}",
 							org.springframework.jdbc.datasource;version="${spring_version}",
 							org.springframework.beans.factory.config;version="${spring_version}",
 							org.springframework.context;version="${spring_version}"
@@ -40,14 +39,25 @@
 			<artifactId>spring-beans</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.mchange.c3p0</groupId>
+			<artifactId>com.springsource.com.mchange.v2.c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+		<dependency>
 			<groupId>com.jolbox</groupId>
 			<artifactId>bonecp</artifactId>
 		</dependency>
-		<!--  dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.4.0</version>
-		</dependency-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql_jdbc_driver}</version>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+		</dependency>
+		<!-- dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId> 
+			<version>10.2.0.4.0</version> </dependency -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>

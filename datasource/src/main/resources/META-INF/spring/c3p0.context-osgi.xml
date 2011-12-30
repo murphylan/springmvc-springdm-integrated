@@ -8,6 +8,10 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:/jdbc.properties" />
 	</bean>
+	<bean id="jdbcDriverClass" class="com.xiebiao.jdbc.JdbcDriverBootstrap"
+		factory-method="forName">
+		<constructor-arg value="${jdbc.driverClassName}" />
+	</bean>
 	<bean id="unPooledDataSource"
 		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 		<property name="driverClass" ref="jdbcDriverClass" />
