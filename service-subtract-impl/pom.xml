@@ -26,10 +26,9 @@
 					<manifestLocation>target/bnd</manifestLocation>
 					<instructions>
 						<Import-Package>
-							com.xiebiao.osgi.business.service;version="${project.version}",
 							org.osgi.framework;version="1.0"
-						</Import-Package>
-						<Bundle-Activator>com.xiebiao.osgi.business.service.impl.ComputeServiceSubtractImplActivator</Bundle-Activator>
+                        </Import-Package>
+                        <Require-Bundle>com.xiebiao.osgi.service-api</Require-Bundle>
 					</instructions>
 				</configuration>
 			</plugin>
