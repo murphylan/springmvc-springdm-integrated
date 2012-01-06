@@ -22,7 +22,8 @@
 		<maven_bundle_plugin_version>2.3.6</maven_bundle_plugin_version>
 		<org_slf4j_version>1.6.1</org_slf4j_version>
 		<org_slf4j_api_version>1.6.1</org_slf4j_api_version>
-		<project_basedir>${user.dir}</project_basedir>
+		<dist_dir>${project.basedir}/build/dist</dist_dir>
+		<dependency_dir>${project.basedir}/build/dependency</dependency_dir>
 	</properties>
 	<build>
 		<plugins>
@@ -42,7 +43,7 @@
 							target/bnd/MANIFEST.MF
 						</manifestFile>
 					</archive>
-					<outputDirectory>${user.dir}/build/dist</outputDirectory>
+					<outputDirectory>${dist_dir}</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -55,7 +56,7 @@
 							target/bnd/MANIFEST.MF
 						</manifestFile>
 					</archive>
-					<outputDirectory>${user.dir}/build/dist</outputDirectory>
+					<outputDirectory>${dist_dir}</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -73,7 +74,7 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<configuration>
 					<!-- 方便统一拷贝部署 -->
-					<outputDirectory>${project_basedir}/build/dependency</outputDirectory>
+					<outputDirectory>${dependency_dir}</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
