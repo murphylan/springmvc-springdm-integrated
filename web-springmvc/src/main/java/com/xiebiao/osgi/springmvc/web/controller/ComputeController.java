@@ -1,5 +1,7 @@
 package com.xiebiao.osgi.springmvc.web.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.osgi.extensions.annotation.ServiceReference;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +20,8 @@ import com.xiebiao.osgi.springmvc.web.pojo.ComputePojo;
 @Controller
 @RequestMapping("/demo")
 public class ComputeController {
+	private static Logger LOG = LoggerFactory
+			.getLogger(ComputeController.class);
 	// @Autowired
 	// BundleContext bundleContext;
 
@@ -33,6 +37,7 @@ public class ComputeController {
 	public ModelAndView compute(@ModelAttribute("pojo") ComputePojo pojo) {
 		ModelAndView mv = new ModelAndView("compute");
 		mv.addObject("result", computeService.compute(pojo.getA(), pojo.getB()));
+		LOG.debug("测试日志输出");
 		return mv;
 	}
 

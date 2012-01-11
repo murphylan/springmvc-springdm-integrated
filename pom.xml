@@ -20,8 +20,10 @@
 		<aspectj_version>1.6.11</aspectj_version>
 		<equinox_version>3.5.1.R35x_v20090827</equinox_version>
 		<maven_bundle_plugin_version>2.3.6</maven_bundle_plugin_version>
+		<log4j_version>1.2.16</log4j_version>
 		<org_slf4j_version>1.6.1</org_slf4j_version>
 		<org_slf4j_api_version>1.6.1</org_slf4j_api_version>
+		<slf4j_log4j12_version>1.6.4</slf4j_log4j12_version>
 		<dist_dir>${project.basedir}/build/dist</dist_dir>
 		<dependency_dir>${project.basedir}/build/dependency</dependency_dir>
 	</properties>
@@ -81,6 +83,22 @@
 	</build>
 	<dependencyManagement>
 		<dependencies>
+			<!-- Log libs -->
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${org_slf4j_api_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j_log4j12_version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis-spring</artifactId>
